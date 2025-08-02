@@ -1,0 +1,7 @@
+dotnet ef migrations add InitialCreate
+
+dotnet ef migrations add InitialIdentity
+
+dotnet ef database update
+
+migraciones de PostgreSQL

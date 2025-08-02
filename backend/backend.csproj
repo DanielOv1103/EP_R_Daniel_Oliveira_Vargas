@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>2be3fa6d-34df-436c-8413-f35f8668136b</UserSecretsId>
+
+    <!-- Aquí dentro -->
+    <RootNamespace>backend.EP_R_Daniel_Oliveira_Vargas</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Shared framework -->
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+
+    <!-- OpenAPI / Swagger -->
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.*" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+
+    <!-- EF Core para Postgres -->
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.*" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.*" />
+
+    <!-- Autenticación JWT -->
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.*" />
+
+    <!-- Identity + EF Core -->
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.*" />
+  </ItemGroup>
+
+</Project>
