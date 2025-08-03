@@ -1,24 +1,34 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom'
 import { Button } from '@/components/ui/button';
-import { Home, Users, Poll, Settings, LogOut } from 'lucide-react';
+import { Home, Users, PieChart, Settings, LogOut } from 'lucide-react';
+import { logout } from "@/api/auth";
+
 
 /**
  * Sidebar genérico que muestra enlaces según el rol ('user' o 'admin').
  */
+
 export default function Sidebar({ role }) {
+    const navigate = useNavigate();
+    
     const commonLinks = [
         { to: '/dashboard', label: 'Inicio', icon: Home },
     ];
     const userLinks = [
         ...commonLinks,
-        { to: '/polls', label: 'Encuestas', icon: Poll },
+        { to: '/polls', label: 'Encuestas', icon: PieChart },
     ];
     const adminLinks = [
         ...commonLinks,
         { to: '/admin/users', label: 'Usuarios', icon: Users },
         { to: '/admin/settings', label: 'Ajustes', icon: Settings },
     ];
+
+    const handleLogout = () => {
+        logout();              // 1. limpia storage
+        navigate("/login");    // 2. redirige al login
+    };
 
     const links = role === 'admin' ? adminLinks : userLinks;
 
@@ -44,9 +54,7 @@ export default function Sidebar({ role }) {
                 <Button
                     variant="outline"
                     className="w-full flex items-center justify-center"
-                    onClick={() => {
-                        // TODO: manejar logout
-                    }}
+                    onClick={handleLogout}
                 >
                     <LogOut className="w-4 h-4 mr-2" />
                     Salir

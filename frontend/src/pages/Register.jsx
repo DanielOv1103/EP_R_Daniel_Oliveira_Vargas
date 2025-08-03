@@ -1,8 +1,12 @@
+// src/pages/Register.jsx
 import React from 'react';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { Loader2 } from 'lucide-react';
+
+import { registerUser } from '@/api/auth';
+
 import {
     Card,
     CardHeader,
@@ -21,23 +25,23 @@ import {
     SelectItem,
 } from '@/components/ui/select';
 
-import { registerUser } from '@/api/auth';
-
 export default function Register() {
     const {
         register,
+        control,
         handleSubmit,
         formState: { errors, isSubmitting },
-    } = useForm();
-
+    } = useForm({
+        defaultValues: { role: '0' }
+    });
     const navigate = useNavigate();
 
     const onSubmit = async (data) => {
+        console.log('onSubmit data:', data);
         try {
             const { token, user } = await registerUser(data);
             localStorage.setItem('token', token);
             localStorage.setItem('user', JSON.stringify(user));
-            console.log(data, token, user);
             toast.success('Registro exitoso');
             navigate('/login');
         } catch (err) {
@@ -46,14 +50,17 @@ export default function Register() {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
             <Card className="w-full max-w-md">
                 <CardHeader>
                     <CardTitle>Registro</CardTitle>
-                    <CardDescription>Completa los datos para crear tu cuenta</CardDescription>
+                    <CardDescription>
+                        Completa los datos para crear tu cuenta
+                    </CardDescription>
                 </CardHeader>
                 <CardContent>
-                    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+                    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                        {/* Nombre */}
                         <div>
                             <Label htmlFor="name">Nombre</Label>
                             <Input
@@ -66,6 +73,7 @@ export default function Register() {
                             )}
                         </div>
 
+                        {/* Email */}
                         <div>
                             <Label htmlFor="email">Email</Label>
                             <Input
@@ -85,6 +93,7 @@ export default function Register() {
                             )}
                         </div>
 
+                        {/* Contraseña */}
                         <div>
                             <Label htmlFor="password">Contraseña</Label>
                             <Input
@@ -100,23 +109,40 @@ export default function Register() {
                                 })}
                             />
                             {errors.password && (
-                                <p className="text-sm text-red-600">{errors.password.message}</p>
+                                <p className="text-sm text-red-600">
+                                    {errors.password.message}
+                                </p>
                             )}
                         </div>
 
+                        {/* Rol */}
                         <div>
                             <Label htmlFor="role">Rol</Label>
-                            <Select defaultValue="0" {...register('role', { required: true })}>
-                                <SelectTrigger id="role">
-                                    <SelectValue placeholder="Selecciona un rol" />
-                                </SelectTrigger>
-                                <SelectContent>
-                                    <SelectItem value="0">Usuario</SelectItem>
-                                    <SelectItem value="1">Admin</SelectItem>
-                                </SelectContent>
-                            </Select>
+                            <Controller
+                                name="role"
+                                control={control}
+                                rules={{ required: 'Debes seleccionar un rol' }}
+                                render={({ field }) => (
+                                    <Select
+                                        value={field.value}
+                                        onValueChange={(val) => field.onChange(val)}
+                                    >
+                                        <SelectTrigger id="role">
+                                            <SelectValue placeholder="Selecciona un rol" />
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                            <SelectItem value="0">Usuario</SelectItem>
+                                            <SelectItem value="1">Admin</SelectItem>
+                                        </SelectContent>
+                                    </Select>
+                                )}
+                            />
+                            {errors.role && (
+                                <p className="text-sm text-red-600">{errors.role.message}</p>
+                            )}
                         </div>
 
+                        {/* Botón Enviar con loader */}
                         <Button
                             type="submit"
                             className="w-full flex items-center justify-center"
@@ -128,6 +154,7 @@ export default function Register() {
                             {isSubmitting ? 'Enviando...' : 'Registrarme'}
                         </Button>
 
+                        {/* Link a login */}
                         <p className="text-center text-sm">
                             ¿Ya tienes una cuenta?{' '}
                             <Link to="/login" className="text-blue-600 underline">

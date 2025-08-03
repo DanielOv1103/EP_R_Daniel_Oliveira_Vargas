@@ -1,11 +1,15 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Toaster } from "react-hot-toast";
-import "./index.css"; 
+import "./index.css";
 
 import Login from "@/pages/Login";
 import Register from "@/pages/Register";
+import AdminLayout from "@/components/layouts/admin";
+import UserLayout from "./components/layouts/user";
+
 import Dashboard from "@/pages/Dashboard";
+import Polls from "@/pages/Polls";
 
 const router = createBrowserRouter([
   {
@@ -24,9 +28,32 @@ const router = createBrowserRouter([
   },
   {
     path: "/admin/dashboard",
-    element: <Dashboard />,
+    element: (
+      <AdminLayout>
+        <Dashboard />
+      </AdminLayout>
+    ),
     errorElement: <h1>Not Found 404</h1>
   },
+  {
+    path: "/dashboard",
+    element: (
+      <UserLayout>
+        <Dashboard />
+      </UserLayout>
+    ),
+    errorElement: <h1>Not Found 404</h1>
+  },
+  {
+    path: "/polls",
+    element: (
+      <UserLayout>
+        <Polls />
+      </UserLayout>
+    ),
+    errorElement: <h1>Not Found 404</h1>
+  },
+
 ]);
 
 
