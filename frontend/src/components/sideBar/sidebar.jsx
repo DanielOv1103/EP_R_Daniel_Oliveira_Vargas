@@ -22,8 +22,10 @@ export default function Sidebar({ role }) {
     ];
     const adminLinks = [
         ...commonLinks,
-        { to: '/admin/users', label: 'Usuarios', icon: Users },
-        { to: '/admin/settings', label: 'Ajustes', icon: Settings },
+        { to: '/admin/polls', label: 'Encuestas', icon: PieChart },
+        { to: '/admin/votes', label: 'Votos', icon: History },
+        // { to: '/admin/settings', label: 'Ajustes', icon: Settings },
+        // { to: '/admin/users', label: 'Usuarios', icon: Users },
     ];
 
     const handleLogout = () => {

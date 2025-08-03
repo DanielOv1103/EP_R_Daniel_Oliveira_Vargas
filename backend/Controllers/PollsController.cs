@@ -20,22 +20,51 @@ namespace backend.EP_R_Daniel_Oliveira_Vargas.Controllers
         // 1️⃣ Hacemos pública esta acción
         [HttpGet]
         [AllowAnonymous]
+        // GET /api/Polls
+        [HttpGet]
         public async Task<IActionResult> GetAll()
         {
             var polls = await _db.Polls
-                                 .Where(p => p.Status == Status.Active)
-                                 .ToListAsync();
+                .Where(p => p.Status == Status.Active)
+                .Include(p => p.Options)
+                .Select(p => new
+                {
+                    id = p.Id,
+                    title = p.Title,
+                    description = p.Description,
+                    isActive = p.Status == Status.Active,
+                    options = p.Options.Select(o => new
+                    {
+                        id = o.Id,
+                        text = o.Text
+                    }).ToList()
+                })
+                .ToListAsync();
+
             return Ok(polls);
         }
 
-        // 2️⃣ Y esta también
+        // GET /api/Polls/{id}
         [HttpGet("{id}")]
-        [AllowAnonymous]
         public async Task<IActionResult> Get(int id)
         {
             var poll = await _db.Polls
-                                .Include(p => p.Options)
-                                .SingleOrDefaultAsync(p => p.Id == id && p.Status == Status.Active);
+                .Include(p => p.Options)
+                .Where(p => p.Id == id && p.Status == Status.Active)
+                .Select(p => new
+                {
+                    id,
+                    title = p.Title,
+                    description = p.Description,
+                    isActive = p.Status == Status.Active,
+                    options = p.Options.Select(o => new
+                    {
+                        id = o.Id,
+                        text = o.Text
+                    }).ToList()
+                })
+                .SingleOrDefaultAsync();
+
             if (poll == null) return NotFound();
             return Ok(poll);
         }
@@ -56,7 +85,7 @@ namespace backend.EP_R_Daniel_Oliveira_Vargas.Controllers
         }
 
         // Sólo admins pueden actualizar
-        [HttpPut("{id}"), Authorize(Roles = "Admin")]
+        [HttpPatch("{id}"), Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update(int id, UpdatePollDto dto)
         {
             var p = await _db.Polls.FindAsync(id);
@@ -82,5 +111,6 @@ namespace backend.EP_R_Daniel_Oliveira_Vargas.Controllers
             await _db.SaveChangesAsync();
             return NoContent();
         }
+
     }
 }

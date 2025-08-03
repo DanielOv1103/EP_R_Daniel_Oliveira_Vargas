@@ -1,5 +1,6 @@
 // DTOs/RegisterDto.cs
 using backend.EP_R_Daniel_Oliveira_Vargas.Models;
+using System.ComponentModel.DataAnnotations;
 
 
 namespace backend.EP_R_Daniel_Oliveira_Vargas.DTOs
@@ -46,4 +47,13 @@ namespace backend.EP_R_Daniel_Oliveira_Vargas.DTOs
 namespace backend.EP_R_Daniel_Oliveira_Vargas.DTOs
 {
     public record UpdateUserDto(string Name, string Email, Role Role, Status Status, string? Password = null);
+}
+
+namespace backend.EP_R_Daniel_Oliveira_Vargas.DTOs
+{
+    public class UpdateOptionDto
+    {
+        [Required, StringLength(500)]
+        public string Text { get; set; }
+    }
 }
