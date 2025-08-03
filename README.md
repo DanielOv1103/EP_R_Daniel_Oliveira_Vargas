@@ -114,4 +114,4 @@ dotnet ef migrations add NombreMigracion
 
 ## Autor
 
-Daniel Oliveira Vargas - [GitHub]((https://github.com/DanielOv1103))
+Daniel Oliveira Vargas - [GitHub](https://github.com/DanielOv1103)
