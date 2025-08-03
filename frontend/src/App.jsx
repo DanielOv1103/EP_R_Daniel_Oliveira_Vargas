@@ -12,6 +12,9 @@ import Dashboard from "@/pages/Dashboard";
 import Polls from "@/pages/Polls";
 import MyVotes from "@/pages/MyVotes";
 
+import AdminPollForm from "@/pages/AdminPollsForm";
+import PollStatistics from "@/pages/PollStatistics";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -35,6 +38,22 @@ const router = createBrowserRouter([
       </AdminLayout>
     ),
     errorElement: <h1>Not Found 404</h1>
+  },
+  {
+    path: "/admin/polls",
+    element: (
+      <AdminLayout>
+        <AdminPollForm />
+      </AdminLayout>
+    ),
+  },
+  {
+    path: "/admin/votes",
+    element: (
+      <AdminLayout>
+        <PollStatistics />
+      </AdminLayout>
+    ),
   },
   {
     path: "/dashboard",
