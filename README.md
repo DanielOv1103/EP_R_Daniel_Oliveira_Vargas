@@ -6,7 +6,7 @@ Este proyecto es un sistema simple de encuestas y votaciones con autenticación 
 
 ## Requisitos
 
-* .NET 8 SDK o superior
+* [.NET 8 SDK o superior](https://dotnet.microsoft.com/es-es/download)
 * [Node.js (v18 o superior)](https://nodejs.org/)
 * [PostgreSQL](https://www.postgresql.org/download/)
 
@@ -114,4 +114,4 @@ dotnet ef migrations add NombreMigracion
 
 ## Autor
 
-Daniel Oliveira Vargas - [GitHub](https://github.com/tu_usuario)
+Daniel Oliveira Vargas - [GitHub]((https://github.com/DanielOv1103))
