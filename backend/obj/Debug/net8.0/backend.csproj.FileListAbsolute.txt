@@ -120,3 +120,4 @@ C:\Users\HP\Desktop\Proyectos\EP-R-Daniel-Oliveira-Vargas\backend\obj\Debug\net8
 C:\Users\HP\Desktop\Proyectos\EP-R-Daniel-Oliveira-Vargas\backend\obj\Debug\net8.0\backend.pdb
 C:\Users\HP\Desktop\Proyectos\EP-R-Daniel-Oliveira-Vargas\backend\obj\Debug\net8.0\backend.genruntimeconfig.cache
 C:\Users\HP\Desktop\Proyectos\EP-R-Daniel-Oliveira-Vargas\backend\obj\Debug\net8.0\ref\backend.dll
+C:\Users\HP\Desktop\Proyectos\EP-R-Daniel-Oliveira-Vargas\backend\obj\Debug\net8.0\backend.sourcelink.json

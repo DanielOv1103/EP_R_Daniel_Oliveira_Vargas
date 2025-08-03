@@ -67,10 +67,21 @@ builder.Services.AddScoped<IPollService,  PollService>();
 builder.Services.AddScoped<IOptionService,OptionService>();
 builder.Services.AddScoped<IVoteService,  VoteService>();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", policy =>
+        policy.WithOrigins("http://localhost:5173")
+              .AllowAnyHeader()
+              .AllowAnyMethod());
+});
+
 var app = builder.Build();
 
+app.UseCors("AllowFrontend");
+
 // 6) Migraciones automáticas
-using(var s = app.Services.CreateScope()) {
+using (var s = app.Services.CreateScope())
+{
     var db = s.ServiceProvider.GetRequiredService<VotingDbContext>();
     if (await db.Database.CanConnectAsync()) Console.WriteLine("✔️ DB OK");
     db.Database.Migrate();
