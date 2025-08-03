@@ -25,7 +25,7 @@ export default function Polls() {
     }, []);
 
     useEffect(() => {
-        if (!selectedPoll) return;
+        if (!selectedPoll) return
         setLoadingOptions(true);
         getOptions(selectedPoll.id)
             .then(setOptions)

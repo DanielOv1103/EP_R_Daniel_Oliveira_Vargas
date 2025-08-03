@@ -1,3 +1,11 @@
+C:\Users\HP\Desktop\Proyectos\EP-R-Daniel-Oliveira-Vargas\backend\obj\Debug\net8.0\backend.csproj.AssemblyReference.cache
+C:\Users\HP\Desktop\Proyectos\EP-R-Daniel-Oliveira-Vargas\backend\obj\Debug\net8.0\backend.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\Desktop\Proyectos\EP-R-Daniel-Oliveira-Vargas\backend\obj\Debug\net8.0\backend.AssemblyInfoInputs.cache
+C:\Users\HP\Desktop\Proyectos\EP-R-Daniel-Oliveira-Vargas\backend\obj\Debug\net8.0\backend.AssemblyInfo.cs
+C:\Users\HP\Desktop\Proyectos\EP-R-Daniel-Oliveira-Vargas\backend\obj\Debug\net8.0\backend.csproj.CoreCompileInputs.cache
+C:\Users\HP\Desktop\Proyectos\EP-R-Daniel-Oliveira-Vargas\backend\obj\Debug\net8.0\backend.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\HP\Desktop\Proyectos\EP-R-Daniel-Oliveira-Vargas\backend\obj\Debug\net8.0\backend.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\HP\Desktop\Proyectos\EP-R-Daniel-Oliveira-Vargas\backend\obj\Debug\net8.0\backend.sourcelink.json
 C:\Users\HP\Desktop\Proyectos\EP-R-Daniel-Oliveira-Vargas\backend\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\HP\Desktop\Proyectos\EP-R-Daniel-Oliveira-Vargas\backend\bin\Debug\net8.0\appsettings.json
 C:\Users\HP\Desktop\Proyectos\EP-R-Daniel-Oliveira-Vargas\backend\bin\Debug\net8.0\backend.staticwebassets.endpoints.json
@@ -102,14 +110,6 @@ C:\Users\HP\Desktop\Proyectos\EP-R-Daniel-Oliveira-Vargas\backend\bin\Debug\net8
 C:\Users\HP\Desktop\Proyectos\EP-R-Daniel-Oliveira-Vargas\backend\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\HP\Desktop\Proyectos\EP-R-Daniel-Oliveira-Vargas\backend\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\HP\Desktop\Proyectos\EP-R-Daniel-Oliveira-Vargas\backend\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\HP\Desktop\Proyectos\EP-R-Daniel-Oliveira-Vargas\backend\obj\Debug\net8.0\backend.csproj.AssemblyReference.cache
-C:\Users\HP\Desktop\Proyectos\EP-R-Daniel-Oliveira-Vargas\backend\obj\Debug\net8.0\backend.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\HP\Desktop\Proyectos\EP-R-Daniel-Oliveira-Vargas\backend\obj\Debug\net8.0\backend.AssemblyInfoInputs.cache
-C:\Users\HP\Desktop\Proyectos\EP-R-Daniel-Oliveira-Vargas\backend\obj\Debug\net8.0\backend.AssemblyInfo.cs
-C:\Users\HP\Desktop\Proyectos\EP-R-Daniel-Oliveira-Vargas\backend\obj\Debug\net8.0\backend.csproj.CoreCompileInputs.cache
-C:\Users\HP\Desktop\Proyectos\EP-R-Daniel-Oliveira-Vargas\backend\obj\Debug\net8.0\backend.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\HP\Desktop\Proyectos\EP-R-Daniel-Oliveira-Vargas\backend\obj\Debug\net8.0\backend.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\HP\Desktop\Proyectos\EP-R-Daniel-Oliveira-Vargas\backend\obj\Debug\net8.0\backend.sourcelink.json
 C:\Users\HP\Desktop\Proyectos\EP-R-Daniel-Oliveira-Vargas\backend\obj\Debug\net8.0\scopedcss\bundle\backend.styles.css
 C:\Users\HP\Desktop\Proyectos\EP-R-Daniel-Oliveira-Vargas\backend\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\HP\Desktop\Proyectos\EP-R-Daniel-Oliveira-Vargas\backend\obj\Debug\net8.0\staticwebassets.build.json.cache

@@ -10,6 +10,7 @@ import UserLayout from "./components/layouts/user";
 
 import Dashboard from "@/pages/Dashboard";
 import Polls from "@/pages/Polls";
+import MyVotes from "@/pages/MyVotes";
 
 const router = createBrowserRouter([
   {
@@ -53,6 +54,15 @@ const router = createBrowserRouter([
     ),
     errorElement: <h1>Not Found 404</h1>
   },
+  {
+    path: "/my-votes",
+    element: (
+      <UserLayout>
+        <MyVotes />
+      </UserLayout>
+    ),
+    errorElement: <h1>Not Found 404</h1>
+  }
 
 ]);
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom'
 import { Button } from '@/components/ui/button';
-import { Home, Users, PieChart, Settings, LogOut } from 'lucide-react';
+import { Home, Users, PieChart, Settings, LogOut, History } from 'lucide-react';
 import { logout } from "@/api/auth";
 
 
@@ -18,6 +18,7 @@ export default function Sidebar({ role }) {
     const userLinks = [
         ...commonLinks,
         { to: '/polls', label: 'Encuestas', icon: PieChart },
+        { to: '/my-votes', label: 'Mis Votos', icon: History },
     ];
     const adminLinks = [
         ...commonLinks,

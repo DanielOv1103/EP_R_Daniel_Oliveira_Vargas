@@ -33,10 +33,7 @@ namespace backend.EP_R_Daniel_Oliveira_Vargas.DTOs
 // DTOs/CreateOptionDto.cs
 namespace backend.EP_R_Daniel_Oliveira_Vargas.DTOs
 {
-    public record CreateOptionDto(
-        int VoteId,
-        string Text
-    );
+    public record CreateOptionDto(string Text);
 }
 
 // DTOs/CreateVoteDto.cs
