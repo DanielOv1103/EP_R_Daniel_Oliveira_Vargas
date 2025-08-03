@@ -17,18 +17,25 @@ namespace backend.EP_R_Daniel_Oliveira_Vargas.Services
 
     public class UserService : IUserService
     {
-        private readonly VotingDbContext      _db;
+        private readonly VotingDbContext _db;
         private readonly IPasswordHasher<User> _hasher;
-        private readonly IJwtService           _jwt;
+        private readonly IJwtService _jwt;
+
+        public interface IUserService
+        {
+            Task<User> RegisterAsync(RegisterDto dto);
+            Task<string> AuthenticateAsync(LoginDto dto);
+            Task<User?> GetByEmailAsync(string email);    // <-- añadido
+        }
 
         public UserService(
             VotingDbContext db,
             IPasswordHasher<User> hasher,
             IJwtService jwt)
         {
-            _db     = db;
+            _db = db;
             _hasher = hasher;
-            _jwt    = jwt;
+            _jwt = jwt;
         }
 
         public async Task<User> RegisterAsync(RegisterDto dto)
@@ -36,12 +43,13 @@ namespace backend.EP_R_Daniel_Oliveira_Vargas.Services
             if (await _db.Users.AnyAsync(u => u.Email == dto.Email))
                 throw new InvalidOperationException("El email ya existe.");
 
-            var u = new User {
-                Name     = dto.Name,
-                Email    = dto.Email,
-                Role     = dto.Role,
+            var u = new User
+            {
+                Name = dto.Name,
+                Email = dto.Email,
+                Role = dto.Role,
                 RoleName = dto.Role.ToString(),
-                Status   = Status.Active
+                Status = Status.Active
             };
             u.PasswordHash = _hasher.HashPassword(u, dto.Password);
 

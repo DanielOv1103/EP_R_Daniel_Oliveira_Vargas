@@ -14,6 +14,7 @@ export async function registerUser({ name, email, password, role }) {
     return res.json(); // devuelve user + token (según tu API)
 }
 
+
 export async function loginUser({ email, password }) {
     const res = await fetch(`${API_BASE}/login`, {
         method: "POST",
@@ -24,5 +25,10 @@ export async function loginUser({ email, password }) {
         const error = await res.json().catch(() => ({}));
         throw new Error(error.message || "Error iniciando sesión");
     }
-    return res.json(); // devuelve user, role, token
+    return res.json(); // aquí puede venir {token, user} o {token, name, role}, etc.
+}
+
+export function logout() {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
 }

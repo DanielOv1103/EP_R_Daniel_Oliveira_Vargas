@@ -1,8 +1,8 @@
 // src/components/AdminLayout.jsx
 import React from 'react';
-import Sidebar from '@/components/Sidebar';
+import Sidebar from '@/components/sideBar/sidebar';
 
-export default function AdminLayout({ children }) {
+export default function UserLayout({ children }) {
   return (
     <div className="flex">
       <Sidebar role="user" />
